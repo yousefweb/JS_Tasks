@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part14</title>
+</head>
+
+<body>
+  <script>
+    function longerString(s1, s2, s3, s4) {
+      var longer = s1;
+      if (s2.length > longer.length) {
+        longer = s2;
+      }
+      if (s3.length > longer.length) {
+        longer = s3;
+      }
+      if (s4.length > longer.length) {
+        longer = s4;
+      }
+      return longer;
+    }
+    var s1 = window.prompt("enter first word");
+    var s2 = window.prompt("enter second word");
+    var s3 = window.prompt("enter third word");
+    var s4 = window.prompt("enter fourth word");
+    document.write(longerString(s1, s2, s3, s4));
+     //.......................................................................Arrow function 
+/*const longerString = (s1, s2, s3, s4) => {
+  let longer = s1;
+  if (s2.length > longer.length) {
+    longer = s2;
+  }
+  if (s3.length > longer.length) {
+    longer = s3;
+  }
+  if (s4.length > longer.length) {
+    longer = s4;
+  }
+  return longer;
+};
+
+const s1 = window.prompt("Enter the first word:");
+const s2 = window.prompt("Enter the second word:");
+const s3 = window.prompt("Enter the third word:");
+const s4 = window.prompt("Enter the fourth word:");
+document.write(longerString(s1, s2, s3, s4));
+*/
+
+  </script>
+</body>
+
+</html>

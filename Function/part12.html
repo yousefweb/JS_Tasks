@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part12</title>
+</head>
+
+<body>
+  <script>
+    function smallerNubmer(num1, num2, num3) {
+      var smaller = 0;
+      if (num1 < num2 && num1 < num3) {
+        smaller = num1;
+      }
+      else if (num2 < num1 && num2 < num3) {
+        smaller = num2;
+      }
+      else
+        smaller = num3;
+      
+      return smaller;
+    }
+    var num1 = parseInt(window.prompt("please enter the first number:"));
+    var num2 = parseInt(window.prompt("please enter the second number:"));
+    var num3 = parseInt(window.prompt("please enter the third number:"));
+    document.write(smallerNubmer(num1, num2, num3));
+     //.......................................................................Arrow function 
+/*const smallerNumber = (num1, num2, num3) => {
+  let smaller = 0;
+  if (num1 < num2 && num1 < num3) {
+    smaller = num1;
+  } else if (num2 < num1 && num2 < num3) {
+    smaller = num2;
+  } else {
+    smaller = num3;
+  }
+  
+  return smaller;
+};
+
+const num1 = parseInt(window.prompt("Please enter the first number:"));
+const num2 = parseInt(window.prompt("Please enter the second number:"));
+const num3 = parseInt(window.prompt("Please enter the third number:"));
+document.write(smallerNumber(num1, num2, num3));
+*/
+
+  </script>
+</body>
+
+</html>

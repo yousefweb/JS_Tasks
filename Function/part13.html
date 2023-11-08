@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part13</title>
+</head>
+
+<body>
+  <script>
+    function shorterString(s1, s2, s3, s4, s5) {
+      var shorter = s1;
+      if (s2.length < shorter.length) {
+        shorter = s2;
+      }
+      if (s3.length < shorter.length) {
+        shorter = s3;
+      }
+      if (s4.length < shorter.length) {
+        shorter = s4;
+      }
+      if (s5.length < shorter.length) {
+        shorter = s5;
+      }
+      return shorter;
+    }
+    var s1 = window.prompt("enter first word");
+    var s2 = window.prompt("enter second word");
+    var s3 = window.prompt("enter third word");
+    var s4 = window.prompt("enter fourth word");
+    var s5 = window.prompt("enter fifth word");
+    document.write(shorterString(s1, s2, s3, s4, s5));
+     //.......................................................................Arrow function 
+/*const shorterString = (s1, s2, s3, s4, s5) => {
+  let shorter = s1;
+  if (s2.length < shorter.length) {
+    shorter = s2;
+  }
+  if (s3.length < shorter.length) {
+    shorter = s3;
+  }
+  if (s4.length < shorter.length) {
+    shorter = s4;
+  }
+  if (s5.length < shorter.length) {
+    shorter = s5;
+  }
+  return shorter;
+};
+
+const s1 = window.prompt("Enter the first word:");
+const s2 = window.prompt("Enter the second word:");
+const s3 = window.prompt("Enter the third word:");
+const s4 = window.prompt("Enter the fourth word:");
+const s5 = window.prompt("Enter the fifth word:");
+document.write(shorterString(s1, s2, s3, s4, s5));
+*/
+
+
+  </script>
+</body>
+
+</html>

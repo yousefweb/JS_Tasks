@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part1</title>
+</head>
+
+<body>
+  <script>
+    function tellFortune(NoC, PN, GL, JT) {
+      return `You will be a ${JT} in ${GL}, and married to ${PN} with ${NoC} kids`;
+    }
+    var NoC = parseInt(window.prompt("Enter the number of the children:"));
+    var PN = window.prompt("Enter the Parnter Name:");
+    var GL = window.prompt("Enter the Geographic Location:");
+    var JT = window.prompt("Enter the Job Title:");
+    document.write(tellFortune(NoC, PN, GL, JT));
+
+      //.......................................................................Arrow function 
+//     const tellFortune = (NoC, PN, GL, JT) => `You will be a ${JT} in ${GL}, and married to ${PN} with ${NoC} kids`;
+// const NoC = parseInt(window.prompt("Enter the number of the children:"));
+// const PN = window.prompt("Enter the Partner Name:");
+// const GL = window.prompt("Enter the Geographic Location:");
+// const JT = window.prompt("Enter the Job Title");
+
+document.write(tellFortune(NoC, PN, GL, JT));
+
+
+  </script>
+</body>
+
+</html>

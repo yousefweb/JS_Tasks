@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task2-part6</title>
+</head>
+
+<body>
+  <script>
+    function isPandigital(num) {
+
+      var number = '1234567890';
+
+      var strNumber = num.toString();
+      let uniqueNum = '';
+      for (let i = 0; i < strNumber.length; i++) {
+
+        if (number.includes(strNumber[i]) && !uniqueNum.includes(strNumber[i])) {
+          uniqueNum += strNumber[i];
+        }
+      }
+      if (uniqueNum.length === 10)
+        return true;
+      return false;
+    }
+    var num = parseInt(window.prompt("Enter the numbers: "));
+    document.write(isPandigital(num));
+  </script>
+</body>
+
+</html>
