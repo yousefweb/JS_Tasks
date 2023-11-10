@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part9</title>
+</head>
+<body>
+<script>
+/*
+9
+Using assignment operator (=)
+make the animals array have these animals
+var animals = ['cat', 'ele', 'bird']
+animals; => ['zebra', 'elephant']
+** hint: animals[0]=something
+var nums= [1,2,3,8,9]
+nums => [5,-22,3.5,44,98,44]
+*/
+
+var animals = ['cat', 'ele', 'bird'];
+animals[3]="Zebra";
+animals[4]="elephant";
+document.write(animals.join(" ") + "<br><br>");
+
+var nums = [1, 2, 3, 8, 9];
+nums.unshift(-22);
+nums.splice(4,0, 3.5);
+nums.splice(5,0, 4);
+nums.push(44);
+nums.push(44);
+nums.push(98);
+document.write(nums.join(" "));
+ </script>
+</body>
+</html>

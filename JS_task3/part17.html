@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part17</title>
+</head>
+<body>
+  <script>
+    /*
+17
+Create a function called aveArray
+that accept an array
+and return the average of the numbers inside this array
+
+var nums= [1,2,3,8,9]
+Ex: aveArray(nums) => 4.6
+
+var nums2= [1,2,3,8,9,77]
+Ex: aveArray(nums) => 16.6
+
+** solve it one time using for loop and another using while loop
+**try more cases by your self
+*/
+function aveArray(array){
+  let sum = 0;
+ for (let i = 0; i < array.length; i++) {
+       sum+=array[i];
+ }
+ return sum/array.length;
+}
+//...................................
+function aveArrayWhile(array){
+let sum = 0;
+let i =0;
+while(i<array.lenght){
+  sum+=array[i];
+  i++;
+}
+return sum;
+}
+var nums= [1,2,3,8,9];
+var nums2= [1,2,3,8,9,77];
+document.write(aveArray(nums)+"<br>");
+document.write(aveArray(nums2));
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part11</title>
+</head>
+<body>
+  <script>
+    
+/*
+11
+Create a function called arrayExceptLast
+that accept an array
+and return the entire array except the last elemnt
+** hint: search abou the function that will cut the array on MDN
+var nums= [1,2,3,8,9]
+Ex: arrayExceptLast(nums) =>  [1,2,3,8]
+
+**try more cases by your self
+*/
+function arrayExceptLast(arr){
+  var array=[];
+for (let i = 0; i < arr.length; i++) {
+   if(arr[i] < arr[arr.length-1])
+   {
+    array.push(arr[i]);
+   }
+}
+return array;
+// or we use the arr.slice(0,-1)
+}
+
+var nums= [1,2,3,8,9];
+document.write(arrayExceptLast(nums));
+  </script>
+</body>
+</html>
