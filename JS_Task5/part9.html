@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part9</title>
+</head>
+
+<body>
+  <script>
+    function extractKey(arr, key) {
+      return arr.map(x =>x[key]);
+    }
+    document.write(JSON.stringify(extractKey([{ name: 'Elie' }, { name: 'Tim' }, { name: 'Matt' }, { name: 'Colt' }], 'name')));
+  </script>
+</body>
+
+</html>
