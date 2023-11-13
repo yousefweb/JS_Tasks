@@ -30,13 +30,11 @@
   const sum = num.reduce((acc, current) => acc + current, 0);
   return sum / num.length;
 };
-
 const numArray = [];
 for (let i = 1; i <= 5; i++) {
   const num = parseFloat(window.prompt("Enter num" + i));
   numArray.push(num);
 }
-
 const Average = average(...numArray);
 document.write("The average is: " + Average);
 */
