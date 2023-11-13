@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part3</title>
+</head>
+
+<body>
+  <script>
+    function showFirstAndLast(arr) {
+      var result = []
+      arr.forEach(element => {
+        if(element.length >=2){
+        var firstChar = element.charAt(0);
+        var lastChar = element.charAt(element.length - 1);
+        result.push(firstChar + lastChar);
+        }else{
+          result.push(element);
+        }
+      });
+      return result;
+    }
+    var x = ['colt', 'matt', 'tim', 'udemy'];
+    document.write(showFirstAndLast(x) + "<br>");
+    var y = ['hi', 'goodbye', 'smile'];
+    document.write(showFirstAndLast(y));
+
+  </script>
+</body>
+
+</html>
+<!-- var result = []
+arr.forEach(element => {
+  if(element.length >=2){
+  var firstChar = element.charAt(0);
+  var lastChar = element.charAt(element.length - 1);
+  result.push(firstChar + lastChar);
+  }else{
+    result.push(element);
+  }
+  return result;
+}); -->

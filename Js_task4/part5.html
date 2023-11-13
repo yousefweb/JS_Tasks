@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part 5</title>
+</head>
+
+<body>
+  <script>
+function vowelCount(str) {
+  str = str.toLowerCase();
+
+  const vowelCounts = {};
+  
+  const vowels = "aeiou";
+  
+  Array.from(str).forEach(char => {
+
+    if (vowels.includes(char)) {
+      if (vowelCounts[char]) {
+        vowelCounts[char] += 1;
+      } else {
+        vowelCounts[char] = 1;
+      }
+    }
+    
+  });
+  
+  return vowelCounts;
+}
+
+
+document.write(JSON.stringify(vowelCount('Elie'))); 
+document.write(JSON.stringify(vowelCount('Tim')));
+document.write(JSON.stringify(vowelCount('Matt'))); 
+document.write(JSON.stringify(vowelCount('hmmm'))); 
+document.write(JSON.stringify(vowelCount('I Am awesome and so are you')));
+
+  </script>
+</body>
+
+</html>
