@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1 js</title>
+</head>
+<body>
+  <script>
+    // first one
+    function calculater(chr,num1,num2)
+    {
+      if(isNaN(num1 && num2))
+      {
+       document.write("please enter valid number");
+      }
+      if(num1==null || num2==null)
+      {
+        document.write("User cancel the input");
+      }
+      if(!isNaN(chr))
+      {
+        document.write("please enter a valid character");
+      }
+      var result=0;
+    switch(chr)
+    {
+      case '+':
+     result=(num1+num2); break;
+      case '-':
+      result =(num1-num2); break;
+      case '*':
+      result =(num1*num2); break;
+      case '/':
+      result =(num1 / num2); break;
+        default: document.write("this operation not correct"); break;
+    }
+    return result;
+    } 
+    var chr = window.prompt("enter operartion  :  ");
+    var num1 = parseInt(window.prompt("enter first num :  ")) ;
+    var num2 = parseInt(window.prompt("enter second num :  "));
+   
+    var result= calculater(chr,num1,num2);
+    document.write("the result is : "+result);
+  </script>
+</body>
+</html>
