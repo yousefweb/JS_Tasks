@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Data Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 16px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px; 
+    }
+
+    .button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Personal Data Form</h1>
+
+    <form action="#" method="post">
+
+      <label for="name">1. Your Name:
+        <input type="text" id="name" name="name" required>
+      </label>
+
+      <label for="age">2. Your Age:
+        <input type="number" id="age" name="age" required>
+      </label>
+
+      <label>3. Gender:
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+      </label>
+
+      <label for="description">4. Brief Description:
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+      </label>
+
+      <label for="major">5. Your Major and University:
+        <input type="text" id="major" name="major" required>
+      </label>
+
+      <label>6. Programming Languages (minimum 3):</label>
+      <label for="language1"> 
+        <input type="checkbox" id="language1" name="languages[]" value="Asp.net">
+        Asp.net
+      </label>
+      <label for="language2">
+        <input type="checkbox" id="language2" name="languages[]" value="JavaScript">
+        JavaScript
+      </label>
+      <label for="language3">
+        <input type="checkbox" id="language3" name="languages[]" value="Java">
+        Java
+      </label>
+
+      <input type="button" value="Submit" onclick="storeFormData()" class="button">
+    </form>
+  </div>
+
+  <script>
+    function storeFormData() {
+      var formData = {
+        name: document.getElementById('name').value,
+        age: document.getElementById('age').value,
+        gender: document.querySelector('input[name="gender"]:checked').value,
+        description: document.getElementById('description').value,
+        major: document.getElementById('major').value,
+        languages: getSelectedLanguages()
+      };
+
+      
+    function getSelectedLanguages() {
+      var selectedLanguages = [];
+      var languageCheckboxes = document.getElementsByName('languages[]');
+
+      for (var i = 0; i < languageCheckboxes.length; i++) {
+        if (languageCheckboxes[i].checked) {
+          selectedLanguages.push(languageCheckboxes[i].value);
+        }
+      }
+
+      return selectedLanguages;
+    }
+
+      var stringify = JSON.stringify(formData);
+      
+      localStorage.setItem('personalData', stringify);   // in localstorage
+      sessionStorage.setItem('personalData', stringify);  // in session
+       
+      alert('Form data has been stored in local storage.');
+    }
+
+         //if i want to clear data:
+             //localStorage.clear() 
+            // sessionStorage.clear()
+
+  </script>
+</body>
+</html>
