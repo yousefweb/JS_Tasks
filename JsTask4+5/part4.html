@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>part4</title>
+  <style>
+    #output {
+    margin-top: 10px;
+  }
+
+  #dataTable {
+    border-collapse: collapse;
+    width: 15%;
+    margin-top: 20px;
+    border: 2px solid gray;
+  }
+
+  #dataTable th, #dataTable td {
+    border: 1px solid gray; 
+    text-align: center;
+  }
+
+ 
+  </style>
+</head>
+
+<body>
+
+  <form action="#" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name"  oninput="onInput()">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email"  oninput="onInput()">
+
+    <label for="mobileNumber">Mobile:</label>
+    <input type="tel" id="Number" name="Number"  oninput="onInput()">
+
+    <button type="button" onclick="addToTable()">Click On Me to Print</button>
+  </form>
+  <hr>
+  <div>
+    <p>
+      <span id="outputName" style="background-color: green;"></span>
+      <span id="outputEmail" style="background-color: red;"></span>
+      <span id="outputNumber" style="background-color: yellow;"></span>
+    </p>
+  </div>
+  <hr>
+  <table id="dataTable"></table>
+  <script>
+    function onInput() {
+      var nameInput = document.getElementById('name');
+      var emailInput = document.getElementById('email');
+      var numberInput = document.getElementById('Number');
+
+      var outputName = document.getElementById('outputName');
+      var outputEmail = document.getElementById('outputEmail');
+      var outputNumber = document.getElementById('outputNumber');
+
+      outputName.textContent = nameInput.value;
+      outputEmail.textContent = emailInput.value;
+      outputNumber.textContent = numberInput.value;
+    }
+
+   function addToTable() {
+    var nameInput = document.getElementById('name').value;
+    var emailInput = document.getElementById('email').value;
+    var numberInput = document.getElementById('Number').value;
+
+    var table = document.getElementById('dataTable');
+    var newRow = table.insertRow(table.rows.length);
+
+    
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+
+  
+    cell1.innerHTML = nameInput;
+    cell2.innerHTML = emailInput;
+    cell3.innerHTML = numberInput;
+
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('Number').value = '';
+  }
+  </script>
+
+</body>
+
+</html>
