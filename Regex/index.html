@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration and Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #card1 {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+      margin: 10px;
+    }
+
+    #card2 {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+      margin: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    #label1 {
+      margin: 22px;
+      padding: 17px;
+    }
+
+    #loginPassword {
+      margin-left: -30px;
+    }
+
+    input {
+      margin-bottom: 16px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #534caf;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #413b8b;
+    }
+
+    #fname,
+    #lname,
+    #bdate,
+    #eemail,
+    #ppassword,
+    #phoneNumber {
+      color: red;
+      padding-bottom: 8px;
+    }
+
+    #btn2 {
+      margin-left: 162px;
+      padding: 7px 40px;
+    }
+
+    #card2 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="card1">
+    <h1>Registration Form</h1>
+
+    <form id="registrationForm">
+      <label for="firstName">First Name:</label>
+      <input oninput="register()" type="text" id="firstName" name="firstName" required>
+      <div id="fname"></div>
+
+      <label for="lastName">Last Name:</label>
+      <input oninput="register()" type="text" id="lastName" name="lastName" required>
+      <div id="lname"></div>
+
+
+      <label for="date">Birth Date:</label>
+      <input oninput="register()" id="Bdate" name="Bdate" min="1900-01-01" max="2100-12-31" required>
+      <div id="bdate"></div>
+
+      <label for="PhoneNumber">Phone Number:</label>
+      <input oninput="register()" type="PhoneNumber" id="PhoneNumber" name="PhoneNumber"  required>
+      <div id="phoneNumber"></div>
+
+
+      <label for="email">Email:</label>
+      <input oninput="register()" type="email" id="email" name="email" required>
+      <div id="eemail"></div>
+
+
+      <label for="password">Password:</label>
+      <input oninput="register()" type="password" id="password" name="password" required autocomplete="">
+      <div id="ppassword"></div>
+
+      <button id="btn1" type="button">Register</button><br>
+      <a id="backtoLogin" href="#">I hava an Account<a>
+
+
+    </form>
+  </div>
+
+  <div id="card2">
+    <h1>Login Form</h1>
+
+    <form id="loginForm">
+      <label for="loginEmail" id="label1">Email:</label>
+      <input type="email" id="loginEmail" name="loginEmail" required>
+
+      <label for="loginPassword" id="label1">Password:</label>
+      <input type="password" id="loginPassword" name="loginPassword" required autocomplete="">
+
+      <button id="btn2" type="button" onclick="login()">Login</button>
+      <a id="backtoRegister" href="#">Register<a>
+    </form>
+  </div>
+
+  <script>
+    var backtoLogin = document.getElementById("backtoLogin");
+    backtoLogin.addEventListener("click", function (event) {
+      event.preventDefault();
+      var loginF = document.getElementById("card2");
+      loginF.style.display = "block";
+      var registerF = document.getElementById("card1");
+      registerF.style.display = "none";
+    });
+    var backtoRegister = document.getElementById("backtoRegister");
+    backtoRegister.addEventListener("click", function (event) {
+      event.preventDefault();
+      var RegisterF = document.getElementById("card1");
+      RegisterF.style.display = "block";
+      var loginF = document.getElementById("card2");
+      loginF.style.display = "none";
+    });
+
+    function register() {
+      var registrationData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        Bdate: document.getElementById("Bdate").value,
+        PhoneNumber: document.getElementById("PhoneNumber").value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      };
+
+      var namePattern = /^[A-Za-z\s]*$/;
+      var datePattern = /^\d{4}-\d{2}-\d{2}$/;
+      var PhonePattern = /^\d{10}$/;
+      var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      var passwordPattern = /^[A-Z](?=(?:.*\d.*){2,})(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,32}$/;
+
+
+      validateAndDisplayError(registrationData.firstName, namePattern, document.getElementById("fname"), "FirstName should contain only letters");
+      validateAndDisplayError(registrationData.lastName, namePattern, document.getElementById("lname"), "LastName should contain only letters");
+      validateAndDisplayError(registrationData.Bdate, datePattern, document.getElementById("bdate"), "Invalid birth date format. Please use YYYY-MM-DD.");
+      validateAndDisplayError(registrationData.PhoneNumber, PhonePattern, document.getElementById("phoneNumber"), "Mobile number should be 10 numbers");
+      validateAndDisplayError(registrationData.email, emailPattern, document.getElementById("eemail"), "Invalid email address");
+
+      validateAndDisplayError(registrationData.password, passwordPattern, document.getElementById("ppassword"), "Password should start with a capital letter, having at least two numbers, at least one special character or symbol");
+
+      if (
+        namePattern.test(registrationData.firstName) &&
+        namePattern.test(registrationData.lastName) &&
+        datePattern.test(registrationData.Bdate) &&
+        emailPattern.test(registrationData.email) &&
+        passwordPattern.test(registrationData.password)&&
+        PhonePattern.test(registrationData.PhoneNumber)
+      ) {
+        var btnReg = document.getElementById("btn1");
+        btnReg.addEventListener("click", function () {
+
+          var stringify = JSON.stringify(registrationData);
+          localStorage.setItem('registrationData', stringify);
+
+          alert("your info has been registerd successfully and saved in local storage");
+
+          var loginF = document.getElementById("card2");
+          loginF.style.display = "block";
+          var registerF = document.getElementById("card1");
+          registerF.style.display = "none";
+
+        });
+      }
+    }
+ 
+    function login() {
+      var loginEmail = document.getElementById('loginEmail').value;
+      var loginPassword = document.getElementById('loginPassword').value;
+
+      var storedData = localStorage.getItem("registrationData");
+      if (storedData) {
+        var convertString = JSON.parse(storedData);
+        if (convertString.email == loginEmail && convertString.password == loginPassword) {
+          alert("Login Successful :)");
+        }
+        else {
+          alert('Invalid email or password. Please try again.');
+        }
+      }
+      else {
+        alert('No registration data found. Please register first.');
+      }
+    }
+    function validateAndDisplayError(value, pattern, errorMessageElement, customErrorMessage) {
+      if (value.trim() === "") {
+        errorMessageElement.innerHTML = "";
+      } else if (!pattern.test(value)) {
+        errorMessageElement.innerHTML = customErrorMessage || "Invalid input";
+      } else {
+        errorMessageElement.innerHTML = "";
+      }
+    }
+
+
+
+  </script>
+</body>
+
+</html>
